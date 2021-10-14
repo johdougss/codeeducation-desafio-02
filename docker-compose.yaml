@@ -16,6 +16,7 @@ services:
   app:
     build:
       context: node
+      dockerfile: Dockerfile.prod
     container_name: app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     command: node /usr/src/app/index.js
